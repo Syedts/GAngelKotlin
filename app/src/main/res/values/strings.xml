@@ -1,0 +1,7 @@
+<resources>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="app_name">GAngelKotlin</string>
+    <string name="FPtext2">In order to reset your password
+        Please enter your email:
+    </string>
+</resources>

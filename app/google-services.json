@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "699186578094",
+    "project_id": "gangel-93210",
+    "storage_bucket": "gangel-93210.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699186578094:android:e04afa3eecc5ec8ba4a33f",
+        "android_client_info": {
+          "package_name": "com.example.gangelkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699186578094-06tqsbvknjjadhdh4c0l0k1j9idafk3s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gangelkotlin",
+            "certificate_hash": "961927d3f20e5ee5f7fe94b47f55c0a9159bc0b9"
+          }
+        },
+        {
+          "client_id": "699186578094-8mn0to41btda86u3fajjq82cekhk0hgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFX4rBnIiQDFjjzOxVfuLUXcJn5vU1axg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699186578094-8mn0to41btda86u3fajjq82cekhk0hgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
