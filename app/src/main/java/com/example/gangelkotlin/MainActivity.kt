@@ -5,21 +5,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private val router by lazy { Router() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-    fun signinClk(view: View) {
-        val signinBtn = Intent(this, Signin::class.java)
-        startActivity(signinBtn)
-        Toast.makeText(this, "Sign-in page", Toast.LENGTH_SHORT).show()
+
+
+
+        Next_Arrow_Main.setOnClickListener{
+            router.startLoginScreen(this)
+
+        }
     }
 
-    fun CreateAccClk(view: View) {
-        val createAcc = Intent(this, SignUp::class.java) //// Sign in till Sign up
-        startActivity(createAcc)
-        Toast.makeText(this, "Sign-up page", Toast.LENGTH_SHORT).show()
-    }
+
+
+
+
 }

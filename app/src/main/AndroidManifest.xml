@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GAngelKotlin">
-        <activity android:name=".Router"></activity>
+        <activity android:name="email.EmailActivity"></activity>
+        <activity android:name=".Router" />
         <activity android:name=".Rooms" />
         <activity android:name=".settings" />
         <activity android:name=".RoomCont" />

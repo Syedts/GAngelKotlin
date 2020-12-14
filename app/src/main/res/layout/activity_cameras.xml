@@ -45,17 +45,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/campagetitle" />
 
-    <ImageView
-        android:id="@+id/imageView32"
-        android:layout_width="37dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_ionic_ios_arrow_back" />
-
     <EditText
         android:id="@+id/editTextTextPersonName5"
         android:layout_width="wrap_content"
@@ -80,5 +69,18 @@
         app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName5"
         app:layout_constraintTop_toBottomOf="@+id/imageView22"
         app:srcCompat="@drawable/rightarrowroom" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="NavHome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
+        app:layout_constraintVertical_bias="0.229"
+        app:srcCompat="@drawable/homelogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

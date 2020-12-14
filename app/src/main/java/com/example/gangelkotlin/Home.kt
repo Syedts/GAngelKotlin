@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 class Home : AppCompatActivity() {
 
-    val CITY: String = "Toronto,ca"
+    val CITY: String = "Mississauga,CA"
     val API: String = "b74a62c854248521dbd00f3d2c78e86b" // Use API key
 
 
@@ -139,7 +139,7 @@ class Home : AppCompatActivity() {
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
 
                 val updatedAt: Long = jsonObj.getLong("dt")
-                val updatedAtText = "Data and Time: " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt * 1000))
+                val updatedAtText = "Updated at: " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt * 1000))
                 val temp = main.getString("temp") + "°C"
 
                 val pressure = main.getString("pressure")

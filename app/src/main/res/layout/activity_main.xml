@@ -4,47 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/background"
+
+
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
+
         android:layout_width="232dp"
         android:layout_height="246dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/homelogo" />
-
-    <Button
-        android:id="@+id/signinBtn"
-        android:layout_width="114dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="20dp"
-        android:background="#FF9800"
-        android:backgroundTint="@color/orange1"
-        android:onClick="signinClk"
-        android:text="Sign In"
-        app:iconTint="#00FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:srcCompat="@drawable/homelogo"
+        app:tint="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:onClick="CreateAccClk"
-        android:text="Create Account"
-        android:textColor="@color/orange1"
-        android:textStyle="bold"
+        android:layout_marginTop="56dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Welcome"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signinBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/Next_Arrow_Main"
+        android:layout_width="87dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/nav_next_arrow" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

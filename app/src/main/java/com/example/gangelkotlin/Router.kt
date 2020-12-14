@@ -4,7 +4,7 @@ package com.example.gangelkotlin
 import android.app.Activity
 import com.example.gangelkotlin.Signin
 import com.example.gangelkotlin.Home
-
+import com.example.gangelkotlin.Signin.Companion.createIntent
 
 
 class Router {
@@ -25,6 +25,11 @@ class Router {
     }
     fun startSettingsScreen(activity: Activity){
         val intent = settings.createIntent(activity)
+        activity.startActivity(intent)
+    }
+
+    fun startSignUpScreen ( activity: Activity){
+        val intent = SignUp.createIntent(activity)
         activity.startActivity(intent)
     }
 }

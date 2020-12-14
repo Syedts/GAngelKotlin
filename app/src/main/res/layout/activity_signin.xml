@@ -40,14 +40,14 @@
         android:layout_width="31dp"
         android:layout_height="32dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toStartOf="@+id/Password_Text"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/icon_ionic_ios_lock" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/Password_Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -58,43 +58,29 @@
         app:layout_constraintTop_toBottomOf="@+id/Email_Text" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/SignInbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
 
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/orange1"
         android:text="Sign In "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ForgotPass" />
-
-    <TextView
-        android:id="@+id/ForgotPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="20dp"
-        android:text="Forgot Password"
-        android:textAllCaps="true"
-        android:textColor="@color/orange1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/Password_Text" />
 
     <TextView
         android:id="@+id/signinor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:text="OR"
         android:textColor="@color/orange1"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/SignInbutton" />
 
     <ImageView
         android:id="@+id/googleSignIn"
