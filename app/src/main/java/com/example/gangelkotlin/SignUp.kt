@@ -13,8 +13,14 @@ class SignUp : AppCompatActivity() {
     }
 
     fun SignUpClk(view: View) {
+        /*
         val SignUp = Intent(this, Home::class.java)
         startActivity(SignUp)
         Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
+
+         */
     }
+
+
+
 }

@@ -19,7 +19,12 @@ class Router {
         activity.startActivity(intent)
     }
 
-
-
-
+    fun startNotificationScreen(activity: Activity){
+        val intent = Notifications.createIntent(activity)
+        activity.startActivity(intent)
+    }
+    fun startSettingsScreen(activity: Activity){
+        val intent = settings.createIntent(activity)
+        activity.startActivity(intent)
+    }
 }

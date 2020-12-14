@@ -21,21 +21,13 @@ import com.example.gangelkotlin.Router
 import com.example.gangelkotlin.firebase.AuthenticationManager
 import com.example.gangelkotlin.firebase.RC_SIGN_IN
 import com.example.gangelkotlin.utils.showToast
-// import com.facebook.*
-import kotlinx.android.synthetic.main.activity_signin.*
-//import com.facebook.login.LoginResult
+
 
 
 class Signin : AppCompatActivity() {
 
 
-
-
-
-
         // var firebaseAuth: FirebaseAuth?=null
-
-
 
         //Router is used to do intents between activites
         private val router by lazy { Router() }
@@ -53,11 +45,7 @@ class Signin : AppCompatActivity() {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_signin)
            // firebaseAuth = FirebaseAuth.getInstance()
-
             initialize()
-
-
-
         }
 
 

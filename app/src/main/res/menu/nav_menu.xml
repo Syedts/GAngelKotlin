@@ -7,6 +7,23 @@
     android:title="Exit"
     app:showAsAction="ifRoom"/>
 
+<item android:id="@+id/nav_notification"
+        android:title="Notifications"
+        app:showAsAction="never"
+    />
+    <item android:id="@+id/nav_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:showAsAction="ifRoom"
+        />
+    <item android:id="@+id/nav_aboutus"
+        android:title="About Us"
+        app:showAsAction="never"
 
+        />
+    <item android:id="@+id/nav_home"
+        android:title="Home"
+        app:showAsAction="never"
 
+        />
 </menu>
