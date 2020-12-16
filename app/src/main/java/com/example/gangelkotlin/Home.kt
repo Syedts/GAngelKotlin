@@ -12,10 +12,17 @@ import com.example.gangelkotlin.firebase.AuthenticationManager
 import com.example.gangelkotlin.Router
 
 import android.os.AsyncTask
+import android.util.Log
 
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 
 import org.json.JSONObject
 import java.net.URL
@@ -23,8 +30,16 @@ import java.text.SimpleDateFormat
 import java.util.*
 class Home : AppCompatActivity() {
 
-    val CITY: String = "Mississauga,CA"
+
+    var city: String = "Mississauga,CA"
     val API: String = "b74a62c854248521dbd00f3d2c78e86b" // Use API key
+
+//
+
+    val database = Firebase.database
+    val locRef = database.getReference("Location")
+
+
 
 
     private val router by lazy { Router() }
@@ -38,9 +53,123 @@ class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+
+        locRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val locValue = dataSnapshot.getValue().toString()
+                if(!locValue.isNullOrBlank())
+                    {
+                        city == ""
+                        city = locValue
+                    }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+
+            }
+        })
+
+        weatherTask().execute()
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        locRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val locValue = dataSnapshot.getValue().toString()
+                if(!locValue.isNullOrBlank())
+                {
+                    city == ""
+                    city = locValue
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+
+            }
+        })
         weatherTask().execute()
     }
 
+    override fun onResume() {
+        super.onResume()
+        locRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val locValue = dataSnapshot.getValue().toString()
+                if(!locValue.isNullOrBlank())
+                {
+                    city == ""
+                    city = locValue
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+
+            }
+        })
+        weatherTask().execute()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        locRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val locValue = dataSnapshot.getValue().toString()
+                if(!locValue.isNullOrBlank())
+                {
+                    city == ""
+                    city = locValue
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+
+            }
+        })
+        weatherTask().execute()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        locRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val locValue = dataSnapshot.getValue().toString()
+                if(!locValue.isNullOrBlank())
+                {
+                    city == ""
+                    city = locValue
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+
+            }
+        })
+        weatherTask().execute()
+    }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.nav_menu, menu)
@@ -68,6 +197,11 @@ class Home : AppCompatActivity() {
                 }
                 R.id.nav_home -> {
                     router.startHomeScreen(this)
+                    finish()
+                    true
+                }
+                R.id.nav_location -> {
+                    router.startLocationScreen(this)
                     finish()
                     true
                 }
@@ -117,15 +251,20 @@ class Home : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg params: String?): String? {
+
+
             var response: String?
             try {
-                response = URL("https://api.openweathermap.org/data/2.5/weather?q=$CITY&units=metric&appid=$API").readText(
+                response = URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$API").readText(
                         Charsets.UTF_8
                 )
             } catch (e: Exception) {
                 response = null
             }
             return response
+
+
+
         }
 
         override fun onPostExecute(result: String?) {
@@ -163,6 +302,7 @@ class Home : AppCompatActivity() {
             }
 
         }
+
 
 
     }

@@ -1,18 +1,38 @@
 package com.example.gangelkotlin
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
+import android.widget.EditText
+import android.widget.TextView
 import com.example.gangelkotlin.firebase.AuthenticationManager
+import kotlinx.android.synthetic.main.activity_location.*
 
-class Detectors : AppCompatActivity() {
+class location : AppCompatActivity() {
     private val router by lazy { Router() }
     private val authenticationManager by lazy { AuthenticationManager() }
 
+    private val realTimeDatabaseManager by lazy { RealtimeDatabaseManager() }
+
+    companion object {
+        fun createIntent(context: Context) = Intent(context, location::class.java)
+    }
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_location)
+
+
+
+
+    }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.nav_menu, menu)
@@ -56,16 +76,17 @@ class Detectors : AppCompatActivity() {
             }
         }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detectors)
+    fun SaveLocation(view: View) {
+
+        // this gets the Location from the user and saves it in the Location Variable
+
+        val locationContent = LocationText.text.toString()
+
+        // Now sending this data to the data base through  RealtimeDatabaseManager class
+
+        realTimeDatabaseManager.addLocationData(locationContent)
+
     }
 
 
-    fun NavHome2(view: View) {
-        val MainHome = Intent(this, Home::class.java)
-        startActivity(MainHome)
-        Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
-
-    }
 }

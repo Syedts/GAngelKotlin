@@ -44,6 +44,11 @@ class settings : AppCompatActivity() {
                     finish()
                     true
                 }
+                R.id.nav_location -> {
+                    router.startLocationScreen(this)
+                    finish()
+                    true
+                }
                 else -> {
                     if (item != null) {
                         super.onOptionsItemSelected(item)

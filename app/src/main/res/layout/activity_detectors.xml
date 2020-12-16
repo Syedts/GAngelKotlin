@@ -17,17 +17,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/detectortitle" />
 
-    <ImageView
-        android:id="@+id/imageView35"
-        android:layout_width="38dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_ionic_ios_arrow_back" />
-
     <EditText
         android:id="@+id/editTextTextPersonName8"
         android:layout_width="265dp"
@@ -38,7 +27,7 @@
         android:text="MOTION DETECTOR"
         android:textColor="@color/orange1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView34" />
 
@@ -52,7 +41,19 @@
         android:text="SMOKE DETECTOR"
         android:textColor="@color/orange1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+
+    <ImageView
+        android:id="@+id/homee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:onClick="NavHome2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9"
+        app:srcCompat="@drawable/homelogo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

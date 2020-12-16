@@ -32,4 +32,8 @@ class Router {
         val intent = SignUp.createIntent(activity)
         activity.startActivity(intent)
     }
+    fun startLocationScreen ( activity: Activity){
+            val intent = location.createIntent(activity)
+        activity.startActivity(intent)
+    }
 }
