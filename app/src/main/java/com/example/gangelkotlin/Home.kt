@@ -28,152 +28,80 @@ import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
-class Home : AppCompatActivity() {
 
-
+class Home : AppCompatActivity()
+{
     var city: String = "Mississauga,CA"
     val API: String = "b74a62c854248521dbd00f3d2c78e86b" // Use API key
-
-//
 
     val database = Firebase.database
     val locRef = database.getReference("Location")
 
 
-
-
     private val router by lazy { Router() }
     private val authenticationManager by lazy { AuthenticationManager() }
 
-    companion object {
+    companion object
+    {
         fun createIntent(context: Context) = Intent(context, Home::class.java)
     }
 
+    fun getWeatherLoc()
+    {
+        locRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val locValue = dataSnapshot.getValue().toString()
+                if(!locValue.isNullOrBlank())
+                {
+                    city == ""
+                    city = locValue
+                }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+
+            }
+        })
+
+        weatherTask().execute()
+    }
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
-
-        locRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val locValue = dataSnapshot.getValue().toString()
-                if(!locValue.isNullOrBlank())
-                    {
-                        city == ""
-                        city = locValue
-                    }
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-
-            }
-        })
-
-        weatherTask().execute()
-
-
+        getWeatherLoc()
     }
 
-    override fun onStart() {
+    override fun onStart()
+    {
         super.onStart()
-        locRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val locValue = dataSnapshot.getValue().toString()
-                if(!locValue.isNullOrBlank())
-                {
-                    city == ""
-                    city = locValue
-                }
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-
-            }
-        })
-        weatherTask().execute()
+        getWeatherLoc()
     }
 
-    override fun onResume() {
+    override fun onResume()
+    {
         super.onResume()
-        locRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val locValue = dataSnapshot.getValue().toString()
-                if(!locValue.isNullOrBlank())
-                {
-                    city == ""
-                    city = locValue
-                }
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-
-            }
-        })
-        weatherTask().execute()
+        getWeatherLoc()
     }
 
-    override fun onPause() {
+    override fun onPause()
+    {
         super.onPause()
-        locRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val locValue = dataSnapshot.getValue().toString()
-                if(!locValue.isNullOrBlank())
-                {
-                    city == ""
-                    city = locValue
-                }
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-
-            }
-        })
-        weatherTask().execute()
+        getWeatherLoc()
     }
 
-    override fun onRestart() {
+    override fun onRestart()
+    {
         super.onRestart()
-        locRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val locValue = dataSnapshot.getValue().toString()
-                if(!locValue.isNullOrBlank())
-                {
-                    city == ""
-                    city = locValue
-                }
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-
-            }
-        })
-        weatherTask().execute()
+        getWeatherLoc()
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean
+    {
         menuInflater.inflate(R.menu.nav_menu, menu)
-
         return true
     }
 
@@ -213,46 +141,51 @@ class Home : AppCompatActivity() {
                 }
             }
 
-    fun homecamClk(view: View) {
+    fun homecamClk(view: View)
+    {
         val homecam = Intent(this, Cameras::class.java)
         startActivity(homecam)
         Toast.makeText(this, "Cameras", Toast.LENGTH_SHORT).show()
     }
 
-    fun homedetectorsClk(view: View) {
+    fun homedetectorsClk(view: View)
+    {
         val homedect = Intent(this, Detectors::class.java)
         startActivity(homedect)
         Toast.makeText(this, "Detectors", Toast.LENGTH_SHORT).show()
     }
 
-    fun notificationClk(view: View) {
+    fun notificationClk(view: View)
+    {
         val homeNot = Intent(this, Notifications::class.java)
         startActivity(homeNot)
         Toast.makeText(this, "Notifications", Toast.LENGTH_SHORT).show()
     }
 
-    fun SettingClk(view: View) {
+    fun SettingClk(view: View)
+    {
         val homeSett = Intent(this, settings::class.java)
         startActivity(homeSett)
         Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
     }
 
-    fun homeroomCLK(view: View) {
+    fun homeroomCLK(view: View)
+    {
         val homeroom = Intent(this, Rooms::class.java)
         startActivity(homeroom)
         Toast.makeText(this, "Rooms", Toast.LENGTH_SHORT).show()
 
     }
 
-    inner class weatherTask() : AsyncTask<String, Void, String>() {
-        override fun onPreExecute() {
+    inner class weatherTask() : AsyncTask<String, Void, String>()
+    {
+        override fun onPreExecute()
+        {
             super.onPreExecute()
-
         }
 
-        override fun doInBackground(vararg params: String?): String? {
-
-
+        override fun doInBackground(vararg params: String?): String?
+        {
             var response: String?
             try {
                 response = URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$API").readText(
@@ -262,14 +195,13 @@ class Home : AppCompatActivity() {
                 response = null
             }
             return response
-
-
-
         }
 
-        override fun onPostExecute(result: String?) {
+        override fun onPostExecute(result: String?)
+        {
             super.onPostExecute(result)
-            try {
+            try
+            {
                 /* Extracting JSON returns from the API */
                 val jsonObj = JSONObject(result)
                 val main = jsonObj.getJSONObject("main")
@@ -294,10 +226,9 @@ class Home : AppCompatActivity() {
                 findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
 
-
-
-
-            } catch (e: Exception) {
+            }
+            catch (e: Exception)
+            {
 
             }
 

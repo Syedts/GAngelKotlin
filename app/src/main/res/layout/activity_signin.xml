@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/homelogo" />
+        app:srcCompat="@drawable/shield_2" />
 
     <EditText
         android:id="@+id/Email_Text"
@@ -86,24 +86,12 @@
         android:id="@+id/googleSignIn"
         android:layout_width="34dp"
         android:layout_height="33dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:onClick="googleSignInClk"
-        app:layout_constraintEnd_toStartOf="@+id/imageView9"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signinor"
         app:srcCompat="@drawable/icon_awesome_google" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="36dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/googleSignIn"
-        app:layout_constraintTop_toBottomOf="@+id/signinor"
-        app:srcCompat="@drawable/icon_awesome_linkedin" />
 
     <TextView
         android:id="@+id/CreateAcc"
@@ -117,16 +105,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleSignIn" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="36dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/googleSignIn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signinor"
-        app:srcCompat="@drawable/icon_awesome_facebook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

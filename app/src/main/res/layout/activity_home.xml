@@ -68,11 +68,12 @@
         android:id="@+id/humidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:text="06:40 AM"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView19"
         app:layout_constraintEnd_toStartOf="@+id/pressure"
-        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -115,34 +116,25 @@
         android:id="@+id/imageView19"
         android:layout_width="320dp"
         android:layout_height="85dp"
+        android:layout_marginTop="4dp"
         android:onClick="homeroomCLK"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pressure"
         app:srcCompat="@drawable/homerooms" />
 
     <ImageView
-        android:id="@+id/imageView20"
-        android:layout_width="317dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="4dp"
-        android:onClick="homecamClk"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView19"
-        app:srcCompat="@drawable/homecam" />
-
-    <ImageView
         android:id="@+id/imageView21"
         android:layout_width="321dp"
         android:layout_height="74dp"
-        android:layout_marginTop="8dp"
         android:onClick="homedetectorsClk"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView20"
+        app:layout_constraintTop_toBottomOf="@+id/imageView19"
+        app:layout_constraintVertical_bias="0.057"
         app:srcCompat="@drawable/homedet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

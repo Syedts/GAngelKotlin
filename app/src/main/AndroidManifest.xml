@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GAngelKotlin">
-        <activity android:name=".location"></activity>
-        <!-- <activity android:name=".Router" /> -->
+        <activity android:name=".RoomCont"></activity>
+        <activity android:name=".utils.RoomCont" />
+        <activity android:name=".location" /> <!-- <activity android:name=".Router" /> -->
         <activity android:name=".Rooms" />
         <activity android:name=".settings" />
-        <activity android:name=".RoomCont" />
         <activity android:name=".Notifications" />
         <activity android:name=".Detectors" />
         <activity android:name=".Cameras" />

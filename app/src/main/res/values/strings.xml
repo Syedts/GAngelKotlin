@@ -4,4 +4,5 @@
     <string name="FPtext2">In order to reset your password
         Please enter your email:
     </string>
+    <string name="RoomsTitle">Sensor Data: </string>
 </resources>
