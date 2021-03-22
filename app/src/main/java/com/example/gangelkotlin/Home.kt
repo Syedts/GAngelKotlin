@@ -10,20 +10,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gangelkotlin.firebase.AuthenticationManager
 import com.example.gangelkotlin.Router
-
 import android.os.AsyncTask
 import android.util.Log
-
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
@@ -35,7 +33,8 @@ class Home : AppCompatActivity()
     val API: String = "b74a62c854248521dbd00f3d2c78e86b" // Use API key
 
     val database = Firebase.database
-    val locRef = database.getReference("Location")
+    val mAuth = FirebaseAuth.getInstance()
+    val locRef = database.getReference("Locations/"+ mAuth.uid + "/Location1/" )
 
 
     private val router by lazy { Router() }
@@ -211,20 +210,20 @@ class Home : AppCompatActivity()
 
                 val updatedAt: Long = jsonObj.getLong("dt")
                 val updatedAtText = "Updated at: " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt * 1000))
-                val temp = main.getString("temp") + "°C"
+                val Wtemp = main.getString("temp") + "°C"
 
-                val pressure = main.getString("pressure")
+                val Wpressure = main.getString("pressure")
 
-                val humidity = main.getString("humidity")
+                val Whumidity = main.getString("humidity")
 
-                val address = jsonObj.getString("name") + ", " + sys.getString("country")
+                val Waddress = jsonObj.getString("name") + ", " + sys.getString("country")
 
-                findViewById<TextView>(R.id.address).text = address
+                findViewById<TextView>(R.id.address).text = Waddress
                 findViewById<TextView>(R.id.updated_at).text = updatedAtText
 
-                findViewById<TextView>(R.id.temp).text = temp
-                findViewById<TextView>(R.id.pressure).text = pressure
-                findViewById<TextView>(R.id.humidity).text = humidity
+                findViewById<TextView>(R.id.temp).text = Wtemp
+                findViewById<TextView>(R.id.pressure).text = Wpressure
+                findViewById<TextView>(R.id.humidity).text = Whumidity
 
             }
             catch (e: Exception)
