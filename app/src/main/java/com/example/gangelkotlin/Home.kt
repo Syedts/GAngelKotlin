@@ -78,25 +78,25 @@ class Home : AppCompatActivity()
     override fun onStart()
     {
         super.onStart()
-        getWeatherLoc()
+        //getWeatherLoc()
     }
 
     override fun onResume()
     {
         super.onResume()
-        getWeatherLoc()
+       // getWeatherLoc()
     }
 
     override fun onPause()
     {
         super.onPause()
-        getWeatherLoc()
+       // getWeatherLoc()
     }
 
     override fun onRestart()
     {
         super.onRestart()
-        getWeatherLoc()
+        //getWeatherLoc()
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean
     {
@@ -149,7 +149,7 @@ class Home : AppCompatActivity()
 
     fun homedetectorsClk(view: View)
     {
-        val homedect = Intent(this, Detectors::class.java)
+        val homedect = Intent(this, MotionDetector::class.java)
         startActivity(homedect)
         Toast.makeText(this, "Detectors", Toast.LENGTH_SHORT).show()
     }

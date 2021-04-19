@@ -5,4 +5,6 @@
         Please enter your email:
     </string>
     <string name="RoomsTitle">Sensor Data: </string>
+    <string name="DetDef">  Tap on the Toggle Switch to turn Motion Detection on  </string>
+    <string name="motion_detection_status">Motion Detection Status:</string>
 </resources>

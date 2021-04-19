@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shield_2" />
+        app:srcCompat="@drawable/shield2" />
 
     <EditText
         android:id="@+id/Email_Text"

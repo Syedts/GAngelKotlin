@@ -9,7 +9,9 @@ import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
-import kotlinx.android.synthetic.main.activity_signin.*
+
+//import kotlinx.android.synthetic.main.activity_sign_up.*
+//import kotlinx.android.synthetic.main.activity_signin.*
 
 class SignUp : AppCompatActivity() {
     private val router by lazy { Router() }

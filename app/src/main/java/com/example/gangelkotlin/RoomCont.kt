@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_room_cont.*
+
 import java.lang.Math.round
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -39,7 +39,6 @@ class RoomCont : AppCompatActivity()
     }
 
     private fun getDatabase() {
-        // TODO: Find the reference form the database.
         database = FirebaseDatabase.getInstance()
         val mAuth = FirebaseAuth.getInstance()
         val path = "users/" + mAuth.uid // read from the user account.
@@ -61,7 +60,7 @@ class RoomCont : AppCompatActivity()
             override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
                 val ds = dataSnapshot.getValue(RealtimeDatabaseManager::class.java)
 
-                //val humidityRounded
+
               //  name!!.text = "Name: " + ds!!.name
                 temperature!!.text = ds!!.temperature.toString()
                 humidity!!.text =  ds!!.humidity.toString().format("%.2f",humidity)
@@ -95,12 +94,12 @@ class RoomCont : AppCompatActivity()
             override fun onCancelled(databaseError: DatabaseError) {}
         })
 
-        // TODO: Get the whole data array on a reference.
+
         myRef!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val arraylist: MutableList<RealtimeDatabaseManager> = ArrayList()
 
-                // TODO: Now data is retrieved, needs to process data.
+
                 if (dataSnapshot != null && dataSnapshot.value != null) {
 
                     // iterate all the items in the dataSnapshot
