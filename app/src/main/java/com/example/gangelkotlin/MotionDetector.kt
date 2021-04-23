@@ -13,7 +13,8 @@ class MotionDetector : AppCompatActivity() {
 
     private val router by lazy { Router() }
     private val authenticationManager by lazy { AuthenticationManager() }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean
+    {
 
         menuInflater.inflate(R.menu.nav_menu, menu)
 
@@ -56,18 +57,17 @@ class MotionDetector : AppCompatActivity() {
             }
         }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_motion_detector)
         Toast.makeText(this, "Welcome to Detectors", Toast.LENGTH_SHORT).show()
-
-
     }
 
-    fun NavHome3(view: View) {
+    fun NavHome3(view: View)
+    {
         val MainHome = Intent(this, Home::class.java)
         startActivity(MainHome)
         Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
-
     }
 }
