@@ -1,18 +1,13 @@
 package com.example.gangelkotlin.firebase
 
-import android.R
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
-import androidx.core.app.NotificationCompat
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.example.gangelkotlin.MotionDetector
@@ -34,10 +29,7 @@ class MyFirebaseInstanceIdService: FirebaseMessagingService()
         val token = FirebaseInstanceId.getInstance().token
         Log.d(TAG, "Refreshed token: $token")
 
-        // If you want to send messages to this application instance or
-        // manage this apps subscriptions on the server side, send the
-        // Instance ID token to your app server.
-       //sendRegistrationToServer(refreshedToken)
+
     }
 
 
@@ -47,6 +39,11 @@ class MyFirebaseInstanceIdService: FirebaseMessagingService()
 
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
        Log.d(TAG, "From:  ${remoteMessage.from}")
+//Intent to open up the Detector activity
+       val intent = Intent(this, MotionDetector::class.java)
+       intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+       val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
+               PendingIntent.FLAG_ONE_SHOT)
 
         // Check if message contains a data payload.
         if (remoteMessage.data.size > 0) {
@@ -70,6 +67,7 @@ class MyFirebaseInstanceIdService: FirebaseMessagingService()
                         manager!!.createNotificationChannel(channel)
 
                             val notification: Notification = Notification.Builder(getApplicationContext(), CHANNEL_ID)
+                                    //.setContentIntent(pendingIntent)
                                     .setSmallIcon(com.example.gangelkotlin.R.drawable.shield2)
                                     .setContentTitle(remoteMessage.getData().get("title"))
                                     .setContentText(remoteMessage.getData().get("text") )
@@ -112,41 +110,11 @@ class MyFirebaseInstanceIdService: FirebaseMessagingService()
         // [END dispatch_job]
     }
 
-    /**
-     * Handle time allotted to BroadcastReceivers.
-     */
+
     private fun handleNow() {
         Log.d(TAG, "Short lived task is done.")
     }
 
-//    private fun sendNotification(messageBody: String) {
-//        val intent = Intent(this, MotionDetector::class.java)
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-//        val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
-//                PendingIntent.FLAG_ONE_SHOT)
-//
-//        val channelId = "my_channel_02"
-//        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-//        val notificationBuilder = NotificationCompat.Builder(this, channelId)
-//                .setSmallIcon(R.drawable.ic_lock_idle_alarm)
-//                .setContentTitle("title")
-//                .setContentText(messageBody)
-//                .setAutoCancel(true)
-//                .setSound(defaultSoundUri)
-//                .setContentIntent(pendingIntent)
-//
-//        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//
-//        // Since android Oreo notification channel is needed.
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            val channel = NotificationChannel(channelId,
-//                    "Channel human readable title",
-//                    NotificationManager.IMPORTANCE_DEFAULT)
-//            notificationManager.createNotificationChannel(channel)
-//        }
-//
-//        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
-//
-//    }
+
 
 }

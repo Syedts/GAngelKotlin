@@ -50,14 +50,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DetDef" />
 
-    <ToggleButton
-        android:id="@+id/MotionDetection"
+    <TextView
+        android:id="@+id/MotionDetectedAlert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="ToggleButton"
+        android:fontFamily="sans-serif-black"
+        android:text="Safe"
+        android:textColor="#03FB0F"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/homee"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
-        app:layout_constraintStart_toEndOf="@+id/MotionTitle"
-        app:layout_constraintTop_toBottomOf="@+id/DetDef" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MotionTitle"
+        app:layout_constraintVertical_bias="0.41" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

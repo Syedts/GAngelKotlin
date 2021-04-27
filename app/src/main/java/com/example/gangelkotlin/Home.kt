@@ -80,25 +80,25 @@ class Home : AppCompatActivity()
     override fun onStart()
     {
         super.onStart()
-        //getWeatherLoc()
+        getWeatherLoc()
     }
 
     override fun onResume()
     {
         super.onResume()
-       // getWeatherLoc()
+
     }
 
     override fun onPause()
     {
         super.onPause()
-       // getWeatherLoc()
+
     }
 
     override fun onRestart()
     {
         super.onRestart()
-        //getWeatherLoc()
+
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean
     {
