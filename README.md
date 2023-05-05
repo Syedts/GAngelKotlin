@@ -15,6 +15,6 @@ Able to set up Authentication using Google as the main login platform
 We then made the connection from the android applicaitona and Firebase so that our data( Temperature, Humidity, Pressure, Motion Sensor ) could be displayed in Realtime. 
 Since this is a home monitoring system, if any motion was sensed a notifiation messaged was sent to the owner that motion was sensed. This was implemented by Firebase's Cloud Messaging platform. 
 
-
+Technologies Used: Kotlin, Android Studio, AdobeXD , Firebase Authentication, Firebase Realtime-Database, Firebase Firestore, Firebase Cloud Messaging, Python,Raspberry Pi, OpenWeather Weather API, Pyrebase 
 A video demonstration on how the Iot project works , Please Check it out ! 
 https://youtu.be/GDCdV11pFPg
